@@ -1,9 +1,12 @@
 import { Notification } from "components/Notification/Notification"
 import { StatisticsItem, StatisticsList } from "./Statistics.styled"
 import PropTypes from 'prop-types';
+import { useContext } from "react";
+import { Context } from "Context/stateContext";
 
 
-export const Statistics = ({good, neurtal, bad})=> {
+export const Statistics = () =>{     
+    const {good, neurtal, bad} = useContext(Context)
     function countTotalFeedback(){
         return (good+neurtal+bad)
     }
@@ -27,7 +30,7 @@ return(
 }
 
 Statistics.propTypes = {
-    good: PropTypes.number.isRequired,
-    neurtal: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
+    good: PropTypes.number,
+    neurtal: PropTypes.number,
+    bad: PropTypes.number,
 }
